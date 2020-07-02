@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Spartan, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.6rem;
+  background: #effafa;
+}
+
+.main-header {
+  height: 10vh;
+  width: 100vw;
+  background: #5ba4a4;
+  background-image: url("../images/bg-header-desktop.svg");
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+}
+
+.job-container {
+  width: 75%;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=style.css.map */

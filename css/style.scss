@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
+$dark: hsl(180, 8%, 52%);
+$veryDark: hsl(180, 14%, 20%);
+$navBgColor: hsl(180, 29%, 50%);
+$bodyBgColor: hsl(180, 52%, 96%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Spartan, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.6rem;
+
+  background: $bodyBgColor;
+}
+
+// Header
+.main-header {
+  height: 10vh;
+  width: 100vw;
+  background: $navBgColor;
+  background-image: url('../images/bg-header-desktop.svg');
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+}
+
+// Job Section
+
+.job-container {
+  width: 75%;
+  margin: 0 auto;
+}
