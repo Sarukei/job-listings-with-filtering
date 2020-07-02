@@ -30,4 +30,8 @@ body {
   width: 75%;
   margin: 0 auto;
 }
+
+.job-listing-card {
+  background: white;
+}
 /*# sourceMappingURL=style.css.map */
