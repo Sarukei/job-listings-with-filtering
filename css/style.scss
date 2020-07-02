@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
 $dark: hsl(180, 8%, 52%);
+$desaturatedDark: hsl(180, 29%, 50%);
 $veryDark: hsl(180, 14%, 20%);
 $navBgColor: hsl(180, 29%, 50%);
 $lightColor: hsl(180, 52%, 96%);
 $cardHeight: 25rem;
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,7 +19,8 @@ html {
 
 body {
   font-family: Spartan, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  font-weight: 500;
 
   background: $lightColor;
 }
@@ -44,10 +48,16 @@ body {
   background: white;
   padding: 2.5rem;
   margin: 2.5rem 0;
+  border-radius: 3px;
   box-shadow: 0 1.25rem 1.5rem -0.7rem rgba($navBgColor, 0.3);
-  height: $cardHeight;
+  max-height: $cardHeight;
+
+  &.featured {
+    // For the left border line
+    border-left: 5px solid $desaturatedDark;
+  }
   &__content {
-    background: red;
+    // background: red;
     width: 100%;
     height: 100%;
 
@@ -55,13 +65,86 @@ body {
 
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
     &__details {
+      padding: 1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       height: 100%;
+
+      &__job-info {
+        margin-left: 2.5rem;
+
+        &__header {
+          // background: red;
+          display: flex;
+          align-items: center;
+
+          &__company-name {
+            // background: red;
+            font-weight: 700;
+            color: $desaturatedDark;
+          }
+
+          &__post-tags {
+            margin-left: 1rem;
+            display: flex;
+
+            // Default styling for all post-tags
+            & > * {
+              text-transform: uppercase;
+              // background: red;
+              padding: 0.75rem 1rem;
+              text-align: center;
+              border-radius: 200px;
+              // border: 0.5rem solid red;
+              font-size: 1.2rem;
+              font-weight: 700;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-left: 1rem;
+              color: white;
+            }
+
+            & .tag-new {
+              background: $navBgColor;
+            }
+
+            & .tag-featured {
+              background: $veryDark;
+            }
+          }
+        }
+        &__job-title {
+          font-weight: 700;
+          font-size: 1.5rem;
+          margin: 1rem 0;
+        }
+        &__post-details {
+          // background: red;
+          display: flex;
+          list-style-type: none;
+          color: $dark;
+          align-items: center;
+          font-weight: 500;
+          font-size: 1.4rem;
+
+          li:not(:first-of-type) {
+            margin-left: 2.5rem;
+            position: relative;
+
+            &:before {
+              content: '\2219';
+              font-size: 1.6rem;
+              padding-right: 1.6rem;
+              font-weight: 700;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -71,5 +154,7 @@ body {
   padding: 1rem;
   border-radius: 3px;
   font-weight: 500;
-  color: $dark;
+  color: $desaturatedDark;
+  margin: 0 0.5rem;
+  text-align: center;
 }
