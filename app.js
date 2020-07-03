@@ -38,6 +38,7 @@ const FilterCtrl = (function () {})();
 const UICtrl = (function () {
   const UISelectors = {
     searchBar: '.search-bar',
+    searchBarFilterContainer: '.tag-filters',
     jobPostContainer: '.job-container',
     jobPostTags: '.job-listing-card__content__job-tags',
   };
@@ -148,6 +149,21 @@ const UICtrl = (function () {
 
   const filterJobs = function (filters) {};
 
+  const createSearchBarFilterTagElement = function (filters) {
+    let filterTagHTML = '';
+
+    filters.forEach((filter) => {
+      filterTagHTML += `<div class="tag-filter">
+      <p class="filter-value">${filter}</p>
+      <button class="btn btn--remove-filter">X</button>
+    </div>`;
+    });
+
+    document.querySelector(
+      UISelectors.searchBarFilterContainer
+    ).innerHTML = filterTagHTML;
+  };
+
   // Reveal access to public methods
   return {
     getSelectors: () => UISelectors,
@@ -155,6 +171,11 @@ const UICtrl = (function () {
     showSearchBar: showSearchBar,
     clearAllJobPosts: function () {
       document.querySelector(UISelectors.jobPostContainer).innerHTML = '';
+    },
+    createSearchBarFilterTagElement: createSearchBarFilterTagElement,
+    clearSearchBarFilters: function () {
+      document.querySelector(UISelectors.searchBarFilterContainer).innerHTML =
+        '';
     },
   };
 })();
@@ -175,6 +196,7 @@ const App = {
     const getIdFromPost = function (post) {};
 
     const UISelectors = UICtrl.getSelectors();
+
     // Event delegation to listen for clicks on filter tags
     document
       .querySelector(UISelectors.jobPostContainer)
@@ -188,6 +210,9 @@ const App = {
           searchFilter.add(e.target.textContent);
           console.log(searchFilter);
 
+          // Add filter to searchBar
+          UICtrl.createSearchBarFilterTagElement(searchFilter);
+
           // Go through every job post and keep only the ones that match the filters
           const filteredJobs = jobPostData.filter((jobPost) => {
             let containsFilters = true;
@@ -199,9 +224,15 @@ const App = {
                 break;
               }
             }
-
             return containsFilters;
           });
+
+          UICtrl.clearAllJobPosts();
+
+          filteredJobs.forEach((job) => {
+            UICtrl.createJobPostElement(job);
+          });
+
           console.log('FILTERED JOBS: ');
           filteredJobs.forEach((job) => {
             console.log(`${job.company} - ${job.allTags}`);
@@ -209,6 +240,48 @@ const App = {
 
           console.log(postId);
           UICtrl.showSearchBar();
+        }
+      });
+
+    document
+      .querySelector(UISelectors.searchBar)
+      .addEventListener('click', function (e) {
+        if (e.target.classList.contains('btn--remove-filter')) {
+          // console.log(e.target);
+          const filterValue = e.target.previousElementSibling.innerText;
+          console.log(filterValue);
+          // Means that the x has been pressed
+          // Clear filters from searchFilter
+          searchFilter.delete(filterValue);
+          // Clear Filter from UI
+          UICtrl.clearSearchBarFilters();
+          UICtrl.createSearchBarFilterTagElement(searchFilter);
+
+          UICtrl.clearAllJobPosts();
+          console.log(searchFilter);
+
+          // Go through every job post and keep only the ones that match the filters
+          const filteredJobs = jobPostData.filter((jobPost) => {
+            let containsFilters = true;
+
+            // Go through all the filters and check if jobPost has the right tags
+            for (filter of searchFilter) {
+              if (!jobPost.allTags.includes(filter)) {
+                containsFilters = false;
+                break;
+              }
+            }
+            return containsFilters;
+          });
+
+          filteredJobs.forEach((job) => {
+            UICtrl.createJobPostElement(job);
+          });
+
+          console.log('FILTERED JOBS: ');
+          filteredJobs.forEach((job) => {
+            console.log(`${job.company} - ${job.allTags}`);
+          });
         }
       });
   },
