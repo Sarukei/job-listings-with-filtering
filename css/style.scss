@@ -4,7 +4,7 @@ $desaturatedDark: hsl(180, 29%, 50%);
 $veryDark: hsl(180, 14%, 20%);
 $navBgColor: hsl(180, 29%, 50%);
 $lightColor: hsl(180, 52%, 96%);
-$cardHeight: 25rem;
+$cardHeight: 15rem;
 
 *,
 *::before,
@@ -13,6 +13,8 @@ $cardHeight: 25rem;
   padding: 0;
   box-sizing: border-box;
 }
+
+// General, global styles
 html {
   font-size: 62.5%;
 }
@@ -23,6 +25,14 @@ body {
   font-weight: 500;
 
   background: $lightColor;
+}
+
+button {
+  padding: 1rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  font-family: inherit;
 }
 
 // Header
@@ -36,12 +46,86 @@ body {
   background-size: cover;
 }
 
+// Search Bar
+
+.search-bar {
+  width: 100%;
+  border-radius: 1rem;
+  // padding: 1.5rem 2.5rem;
+  padding-left: 2rem;
+  background: white;
+  display: flex;
+  align-items: center;
+  // flex: 0 1;
+  height: 7.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-185%);
+
+  & > * {
+    height: 100%;
+  }
+
+  .tag-filters {
+    justify-self: flex-start;
+    width: 90%;
+
+    display: flex;
+    align-items: center;
+
+    .tag-filter {
+      background: $lightColor;
+      border-radius: 3px;
+      font-weight: 700;
+      color: $desaturatedDark;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 4.5rem;
+
+      & > * {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .filter-value {
+        padding: 1rem 1.5rem;
+      }
+
+      .btn--remove-filter {
+        background: $navBgColor;
+        color: white;
+        font-weight: 700;
+        font-size: 1.6rem;
+
+        &:hover {
+          background: $veryDark;
+        }
+      }
+    }
+  }
+  .btn--clear-search {
+    justify-self: flex-end;
+    flex-grow: 1;
+  }
+}
+
 // Job Section
 
-.job-container {
+.main-container {
   width: 75%;
   margin: 0 auto;
   margin-top: 10rem;
+  position: relative;
+}
+
+.job-container {
+  width: 100%;
 }
 
 .job-listing-card {
@@ -50,7 +134,7 @@ body {
   margin: 2.5rem 0;
   border-radius: 3px;
   box-shadow: 0 1.25rem 1.5rem -0.7rem rgba($navBgColor, 0.3);
-  max-height: $cardHeight;
+  height: $cardHeight;
 
   &.featured {
     // For the left border line
@@ -145,6 +229,15 @@ body {
           }
         }
       }
+    }
+
+    &__job-tags {
+      height: 100%;
+      display: flex;
+      // flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      // background: red;
     }
   }
 }

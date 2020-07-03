@@ -19,6 +19,14 @@ body {
   background: #effafa;
 }
 
+button {
+  padding: 1rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  font-family: inherit;
+}
+
 .main-header {
   height: 10vh;
   width: 100vw;
@@ -29,10 +37,103 @@ body {
   background-size: cover;
 }
 
-.job-container {
+.search-bar {
+  width: 100%;
+  border-radius: 1rem;
+  padding-left: 2rem;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 7.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateY(-185%);
+          transform: translateY(-185%);
+}
+
+.search-bar > * {
+  height: 100%;
+}
+
+.search-bar .tag-filters {
+  justify-self: flex-start;
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-bar .tag-filters .tag-filter {
+  background: #effafa;
+  border-radius: 3px;
+  font-weight: 700;
+  color: #5ba4a4;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 4.5rem;
+}
+
+.search-bar .tag-filters .tag-filter > * {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.search-bar .tag-filters .tag-filter .filter-value {
+  padding: 1rem 1.5rem;
+}
+
+.search-bar .tag-filters .tag-filter .btn--remove-filter {
+  background: #5ba4a4;
+  color: white;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.search-bar .tag-filters .tag-filter .btn--remove-filter:hover {
+  background: #2c3a3a;
+}
+
+.search-bar .btn--clear-search {
+  justify-self: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.main-container {
   width: 75%;
   margin: 0 auto;
   margin-top: 10rem;
+  position: relative;
+}
+
+.job-container {
+  width: 100%;
 }
 
 .job-listing-card {
@@ -42,7 +143,7 @@ body {
   border-radius: 3px;
   -webkit-box-shadow: 0 1.25rem 1.5rem -0.7rem rgba(91, 164, 164, 0.3);
           box-shadow: 0 1.25rem 1.5rem -0.7rem rgba(91, 164, 164, 0.3);
-  max-height: 25rem;
+  height: 15rem;
 }
 
 .job-listing-card.featured {
@@ -159,6 +260,19 @@ body {
   font-size: 1.6rem;
   padding-right: 1.6rem;
   font-weight: 700;
+}
+
+.job-listing-card__content__job-tags {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .job-tag {

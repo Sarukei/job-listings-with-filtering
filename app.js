@@ -1,3 +1,4 @@
+let jobPostsArr = [];
 const jobPostContainer = document.querySelector('.job-container');
 
 // Returns JSON Data from data.json
@@ -33,14 +34,6 @@ const createJobPostElement = (jobPost) => {
         <div
           class="job-listing-card__content__details__job-info__header__post-tags"
         >
-          <span
-            class="job-listing-card__content__details__job-info__header__post-tags__tag tag-new"
-            >NEW!</span
-          >
-          <span
-            class="job-listing-card__content__details__job-info__header__post-tags__tag tag-featured"
-            >Featured</span
-          >
         </div>
       </div>
       <h2
@@ -70,23 +63,70 @@ const createJobPostElement = (jobPost) => {
     </div>
   </div>
   <div class="job-listing-card__content__job-tags">
-    <span class="job-tag">Frontend</span>
-    <span class="job-tag">Senior</span>
-    <span class="job-tag">HTML</span>
-    <span class="job-tag">CSS</span>
-    <span class="job-tag">JavaScript</span>
   </div>
 </div>
+`;
 
-  `;
+  // Post Tag container el
+  const postTagContainerEl = jobListCardEl.querySelector(
+    '.job-listing-card__content__details__job-info__header__post-tags'
+  );
+
+  // Create post tags
+
+  if (jobPost.featured) {
+    // Create featured tag
+    const featuredTag = document.createElement('span');
+    featuredTag.className =
+      'job-listing-card__content__details__job-info__header__post-tags__tag tag-featured tag-filter';
+
+    featuredTag.innerText = 'Featured';
+    postTagContainerEl.appendChild(featuredTag);
+  }
+
+  if (jobPost.new) {
+    // Create new tag
+    const newTag = document.createElement('span');
+    newTag.className =
+      'job-listing-card__content__details__job-info__header__post-tags__tag tag-new tag-filter';
+
+    newTag.innerText = 'New';
+    postTagContainerEl.appendChild(newTag);
+  }
+
+  // Create the job-tags
+  const jobPostTags = [
+    jobPost.role,
+    jobPost.level,
+    ...jobPost.languages,
+    ...jobPost.tools,
+  ];
+
+  // Get the container for which to place the tags in
+  const jobPostTagsContainerEl = jobListCardEl.querySelector(
+    '.job-listing-card__content__job-tags'
+  );
+
+  jobPostTags.forEach((tag) => {
+    // Create span element for tag
+    const jobPostTagEl = document.createElement('span');
+    jobPostTagEl.className = 'job-tag tag-filter';
+    jobPostTagEl.textContent = tag;
+    jobPostTagsContainerEl.appendChild(jobPostTagEl);
+  });
+
   jobPostContainer.appendChild(jobListCardEl);
 };
-
-let jobPostsArr = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   loadJSONData().then((data) => {
     jobPostsArr = data;
     jobPostsArr.forEach((post) => createJobPostElement(post));
   });
+});
+
+jobPostContainer.addEventListener('click', function (e) {
+  if (e.target.classList.contains('tag-filter')) {
+    console.log(e.target);
+  }
 });
