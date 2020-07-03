@@ -153,6 +153,9 @@ const UICtrl = (function () {
     getSelectors: () => UISelectors,
     createJobPostElement: createJobPostElement,
     showSearchBar: showSearchBar,
+    clearAllJobPosts: function () {
+      document.querySelector(UISelectors.jobPostContainer).innerHTML = '';
+    },
   };
 })();
 
