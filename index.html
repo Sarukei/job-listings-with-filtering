@@ -25,74 +25,92 @@
       }
     </style>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="app.js" defer></script>
   </head>
   <body>
     <header class="main-header"></header>
 
-    <!-- Item Start -->
-    <div class="container job-container">
-      <div class="job-listing-card">
-        <div class="job-listing-card__content">
-          <div class="job-listing-card__content__details">
-            <div class="job-listing-card__content__details__post-image-holder">
-              <img
-                src=""
-                alt=""
-                class="job-listing-card__content__details__post-image-holder__image"
-              />
-            </div>
-            <div class="job-listing-card__content__details__job-info">
-              <div class="job-listing-card__content__details__job-info__header">
-                <span
-                  class="job-listing-card__content__details__job-info__header__company-name"
-                  >Photosnap</span
-                >
-                <span
-                  class="job-listing-card__content__details__job-info__header__post-tags"
-                >
-                  <span
-                    class="job-listing-card__content__details__job-info__header__post-tags__tag tag-new"
-                    >NEW!</span
-                  >
-                  <span
-                    class="job-listing-card__content__details__job-info__header__post-tags__tag tag-featured"
-                    >Featured</span
-                  >
-                </span>
-              </div>
-              <h2
-                class="job-listing-card__content__details__job-info__job-title"
-              >
-                Senior Frontend Developer
-              </h2>
-              <div
-                class="job-listing-card__content__details__job-info__post-details"
-              >
-                <span
-                  class="job-listing-card__content__details__job-info__post-details__post-time"
-                  >1d ago</span
-                >
-                <span
-                  class="job-listing-card__content__details__job-info__post-details__job-contract"
-                  >Full Time</span
-                >
-                <span
-                  class="job-listing-card__content__details__job-info__post-details__job-location"
-                  >USA only</span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="job-listing-card__content__job-tags">
-            <span class="job-tag">Frontend</span>
-            <span class="job-tag">Senior</span>
-            <span class="job-tag">HTML</span>
-            <span class="job-tag">CSS</span>
-            <span class="job-tag">JavaScript</span>
-          </div>
+    <div class="container main-container">
+      <div class="search-bar">
+        <div class="tag-filters">
+          <!-- <div class="tag-filter">
+            <p class="filter-value">Frontend</p>
+            <button class="btn btn--remove-filter">X</button>
+          </div> -->
         </div>
+        <button class="btn btn--clear-search">Clear</button>
+      </div>
+
+      <!-- Item Start -->
+
+      <div class="container job-container">
+        <!-- <div class="job-listing-card">
+          <div class="job-listing-card__content">
+            <div class="job-listing-card__content__details">
+              <div class="job-listing-card__content__details__post-image-holder">
+                <img
+                  src="images/photosnap.svg"
+                  alt=""
+                  class="job-listing-card__content__details__post-image-holder__image"
+                />
+              </div>
+              <div class="job-listing-card__content__details__job-info">
+                <div class="job-listing-card__content__details__job-info__header">
+                  <span
+                    class="job-listing-card__content__details__job-info__header__company-name"
+                    >Photosnap</span
+                  >
+                  <div
+                    class="job-listing-card__content__details__job-info__header__post-tags"
+                  >
+                    <span
+                      class="job-listing-card__content__details__job-info__header__post-tags__tag tag-new"
+                      >NEW!</span
+                    >
+                    <span
+                      class="job-listing-card__content__details__job-info__header__post-tags__tag tag-featured"
+                      >Featured</span
+                    >
+                  </div>
+                </div>
+                <h2
+                  class="job-listing-card__content__details__job-info__job-title"
+                >
+                  Senior Frontend Developer
+                </h2>
+                <ul
+                  class="job-listing-card__content__details__job-info__post-details"
+                >
+                  <li
+                    class="job-listing-card__content__details__job-info__post-details__post-time"
+                  >
+                    1d ago
+                  </li>
+                  <li
+                    class="job-listing-card__content__details__job-info__post-details__job-contract"
+                  >
+                    Full Time
+                  </li>
+                  <li
+                    class="job-listing-card__content__details__job-info__post-details__job-location"
+                  >
+                    USA only
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="job-listing-card__content__job-tags">
+              <span class="job-tag">Frontend</span>
+              <span class="job-tag">Senior</span>
+              <span class="job-tag">HTML</span>
+              <span class="job-tag">CSS</span>
+              <span class="job-tag">JavaScript</span>
+            </div>
+          </div>
+        </div> -->
       </div>
     </div>
+
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
