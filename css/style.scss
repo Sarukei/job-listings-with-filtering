@@ -46,9 +46,17 @@ button {
   background-size: cover;
 }
 
+.tag-filter {
+  cursor: pointer;
+}
+
 // Search Bar
 .search-bar {
   display: none;
+
+  .tag-filter {
+    margin-left: 1rem;
+  }
 }
 .search-bar.visible {
   width: 100%;

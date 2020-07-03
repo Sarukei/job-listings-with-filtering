@@ -282,6 +282,13 @@ const App = {
           filteredJobs.forEach((job) => {
             console.log(`${job.company} - ${job.allTags}`);
           });
+        } else if (e.target.classList.contains('btn--clear-search')) {
+          // Clear filters and clear filter ui
+          UICtrl.clearSearchBarFilters();
+          searchFilter.clear();
+          jobPostData.forEach((jobpost) =>
+            UICtrl.createJobPostElement(jobpost)
+          );
         }
       });
   },
