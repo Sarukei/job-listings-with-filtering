@@ -47,13 +47,17 @@ button {
 }
 
 // Search Bar
-
 .search-bar {
+  display: none;
+}
+.search-bar.visible {
   width: 100%;
   border-radius: 1rem;
   // padding: 1.5rem 2.5rem;
   padding-left: 2rem;
   background: white;
+
+  box-shadow: 0 1.25rem 1.5rem -0.7rem rgba($navBgColor, 0.65);
   display: flex;
   align-items: center;
   // flex: 0 1;
@@ -62,6 +66,8 @@ button {
   top: 0;
   left: 0;
   transform: translateY(-185%);
+
+  animation: slideIn 0.5s ease-in-out;
 
   & > * {
     height: 100%;
@@ -206,6 +212,10 @@ button {
           font-weight: 700;
           font-size: 1.5rem;
           margin: 1rem 0;
+
+          &:hover {
+            color: $navBgColor;
+          }
         }
         &__post-details {
           // background: red;
@@ -250,4 +260,15 @@ button {
   color: $desaturatedDark;
   margin: 0 0.5rem;
   text-align: center;
+}
+
+// Animations
+@keyframes slideIn {
+  0% {
+    transform: translateY(-225%);
+  }
+
+  100% {
+    transform: translateY(-185%);
+  }
 }

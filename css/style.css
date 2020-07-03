@@ -38,10 +38,16 @@ button {
 }
 
 .search-bar {
+  display: none;
+}
+
+.search-bar.visible {
   width: 100%;
   border-radius: 1rem;
   padding-left: 2rem;
   background: white;
+  -webkit-box-shadow: 0 1.25rem 1.5rem -0.7rem rgba(91, 164, 164, 0.65);
+          box-shadow: 0 1.25rem 1.5rem -0.7rem rgba(91, 164, 164, 0.65);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,13 +60,15 @@ button {
   left: 0;
   -webkit-transform: translateY(-185%);
           transform: translateY(-185%);
+  -webkit-animation: slideIn 0.5s ease-in-out;
+          animation: slideIn 0.5s ease-in-out;
 }
 
-.search-bar > * {
+.search-bar.visible > * {
   height: 100%;
 }
 
-.search-bar .tag-filters {
+.search-bar.visible .tag-filters {
   justify-self: flex-start;
   width: 90%;
   display: -webkit-box;
@@ -71,7 +79,7 @@ button {
           align-items: center;
 }
 
-.search-bar .tag-filters .tag-filter {
+.search-bar.visible .tag-filters .tag-filter {
   background: #effafa;
   border-radius: 3px;
   font-weight: 700;
@@ -89,7 +97,7 @@ button {
   height: 4.5rem;
 }
 
-.search-bar .tag-filters .tag-filter > * {
+.search-bar.visible .tag-filters .tag-filter > * {
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -103,22 +111,22 @@ button {
   text-align: center;
 }
 
-.search-bar .tag-filters .tag-filter .filter-value {
+.search-bar.visible .tag-filters .tag-filter .filter-value {
   padding: 1rem 1.5rem;
 }
 
-.search-bar .tag-filters .tag-filter .btn--remove-filter {
+.search-bar.visible .tag-filters .tag-filter .btn--remove-filter {
   background: #5ba4a4;
   color: white;
   font-weight: 700;
   font-size: 1.6rem;
 }
 
-.search-bar .tag-filters .tag-filter .btn--remove-filter:hover {
+.search-bar.visible .tag-filters .tag-filter .btn--remove-filter:hover {
   background: #2c3a3a;
 }
 
-.search-bar .btn--clear-search {
+.search-bar.visible .btn--clear-search {
   justify-self: flex-end;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -237,6 +245,10 @@ button {
   margin: 1rem 0;
 }
 
+.job-listing-card__content__details__job-info__job-title:hover {
+  color: #5ba4a4;
+}
+
 .job-listing-card__content__details__job-info__post-details {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -283,5 +295,27 @@ button {
   color: #5ba4a4;
   margin: 0 0.5rem;
   text-align: center;
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: translateY(-225%);
+            transform: translateY(-225%);
+  }
+  100% {
+    -webkit-transform: translateY(-185%);
+            transform: translateY(-185%);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    -webkit-transform: translateY(-225%);
+            transform: translateY(-225%);
+  }
+  100% {
+    -webkit-transform: translateY(-185%);
+            transform: translateY(-185%);
+  }
 }
 /*# sourceMappingURL=style.css.map */
