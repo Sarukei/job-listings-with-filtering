@@ -17,6 +17,17 @@ body {
   font-size: 1.5rem;
   font-weight: 500;
   background: #effafa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
 }
 
 button {
@@ -25,6 +36,10 @@ button {
   cursor: pointer;
   border-radius: 3px;
   font-family: inherit;
+}
+
+img {
+  width: 100%;
 }
 
 .main-header {
@@ -53,6 +68,8 @@ button {
   width: 100%;
   border-radius: 1rem;
   padding-left: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   background: white;
   -webkit-box-shadow: 0 1.25rem 1.5rem -0.7rem rgba(91, 164, 164, 0.65);
           box-shadow: 0 1.25rem 1.5rem -0.7rem rgba(91, 164, 164, 0.65);
@@ -62,7 +79,7 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 7.5rem;
+  min-height: 7.5rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -103,6 +120,7 @@ button {
       -ms-flex-pack: center;
           justify-content: center;
   height: 4.5rem;
+  margin-top: 0.5rem;
 }
 
 .search-bar.visible .tag-filters .tag-filter > * {
@@ -163,7 +181,7 @@ button {
 }
 
 .job-listing-card.featured {
-  border-left: 5px solid #5ba4a4;
+  border-left: 0.75rem solid #5ba4a4;
 }
 
 .job-listing-card__content {
@@ -324,6 +342,130 @@ button {
   100% {
     -webkit-transform: translateY(-185%);
             transform: translateY(-185%);
+  }
+}
+
+@media (max-width: 1300px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .main-container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 800px) {
+  .job-listing-card__content__details__job-info__post-details
+li:not(:first-of-type) {
+    margin-left: 1rem;
+  }
+  .job-listing-card__content__details__job-info__post-details
+li:not(:first-of-type):before {
+    padding-right: 0.5rem;
+  }
+  .job-listing-card__content__job-tags {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 55%;
+  }
+  .main-container {
+    width: 90%;
+    margin: 0;
+    margin-top: 3rem;
+  }
+  .search-bar.visible {
+    padding-left: 0.75rem;
+  }
+  .search-bar.visible .tag-filters .tag-filter .filter-value,
+  button {
+    padding: 0.5rem 0.75rem;
+  }
+  .search-bar.visible {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    min-height: 5rem;
+  }
+  .job-listing-card {
+    min-height: 100%;
+    height: 35rem;
+    position: relative;
+    padding: 1rem;
+    margin-top: 5.5rem;
+  }
+  .job-listing-card__content__details__job-info {
+    margin: 0;
+    width: 90%;
+  }
+  .job-listing-card__content__details__post-image-holder {
+    position: absolute;
+    top: 0;
+    left: 4.5rem;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 75px;
+    overflow: hidden;
+  }
+  .job-listing-card__content__details {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-bottom: 1px solid #7b8e8e;
+  }
+  .job-listing-card__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .search-bar.visible .tag-filters .tag-filter {
+    height: 3rem;
+  }
+  .job-listing-card__content__details {
+    height: 50%;
+  }
+  .job-listing-card__content__job-tags {
+    height: 50%;
+  }
+  .job-listing-card__content {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1rem 1.5rem;
+  }
+  .job-listing-card__content__job-tags {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: auto;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    padding: 1rem;
+  }
+  .job-listing-card__content__job-tags > * {
+    margin-top: 0.75rem;
+  }
+  .search-bar.visible .tag-filters {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 }
 /*# sourceMappingURL=style.css.map */
