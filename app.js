@@ -169,6 +169,7 @@ const UICtrl = (function () {
     getSelectors: () => UISelectors,
     createJobPostElement: createJobPostElement,
     showSearchBar: showSearchBar,
+    hideSearchBar: hideSearchBar,
     clearAllJobPosts: function () {
       document.querySelector(UISelectors.jobPostContainer).innerHTML = '';
     },
@@ -286,6 +287,7 @@ const App = {
           // Clear filters and clear filter ui
           UICtrl.clearSearchBarFilters();
           searchFilter.clear();
+          UICtrl.hideSearchBar();
           jobPostData.forEach((jobpost) =>
             UICtrl.createJobPostElement(jobpost)
           );
