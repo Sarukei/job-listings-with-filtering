@@ -258,6 +258,11 @@ const App = {
           UICtrl.clearSearchBarFilters();
           UICtrl.createSearchBarFilterTagElement(searchFilter);
 
+          // If search filters are empty, then hide searchbar
+          if (searchFilter.size === 0) {
+            UICtrl.hideSearchBar();
+          }
+
           UICtrl.clearAllJobPosts();
           console.log(searchFilter);
 
